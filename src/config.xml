@@ -1,0 +1,70 @@
+<ESRI.Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.esri.com/Desktop/AddIns">
+    <Name>SupplyOptimization</Name>
+    <AddInID>{291aa10e-f596-4756-9528-079a4a353b92}</AddInID>
+    <Description>Supply Optimization Custom Tools</Description>
+    <Version>0.0.1</Version>
+    <Image>Images\Addin_64.png</Image>
+    <Author>Alberto Nieto (anieto@esri.com)</Author>
+    <Date>4/26/2018</Date>
+    <Targets>
+        <Target name="Desktop" version="10.5" />
+    </Targets>
+    <AddIn language="PYTHON" library="supop_addin.py" namespace="supop_addin">
+        <ArcMap>
+            <Commands>
+                <Button
+                    caption="Origin-Destination Trade Areas"
+                    category="Supply Optimization"
+                    class="ODTA"
+                    id="supop_addin.ODTA"
+                    image="Images\TradeAreas_32.png"
+                    message="Produce Trade Areas for destination points based on calculated patronage probablities from origins to destinations."
+                    tip="ODTA">
+                    <Help heading="ODTA" />
+                </Button>
+
+            </Commands>
+
+            <Extensions>
+            </Extensions>
+
+            <Toolbars>
+                <Toolbar
+                    caption="Supply Optimization Analysis"
+                    category="Supply Optimization Analysis"
+                    id="supop_addin.SupOp_tb"
+                    showInitially="true">
+                    <Items>
+                        <Menu refID="supop_addin.SupOp_menu" />
+                    </Items>
+                </Toolbar>
+            </Toolbars>
+
+            <Menus>
+                <Menu
+                    caption="Supply Optimization"
+                    category="Supply Optimization"
+                    id="supop_addin.SupOp_menu"
+                    isRootMenu="false"
+                    isShortcutMenu="false"
+                    separator="false">
+                    <Items>
+                        <Menu refID="supop_addin.ExplorationTools" />
+                    </Items>
+                </Menu>
+                <Menu
+                    caption="Exploration Tools"
+                    category="Supply Optimization Analysis"
+                    id="supop_addin.ExplorationTools"
+                    isRootMenu="false"
+                    isShortcutMenu="false"
+                    separator="false">
+                    <Items>
+                        <Button refID="supop_addin.ODTA" />
+                    </Items>
+                </Menu>
+            </Menus>
+
+        </ArcMap>
+    </AddIn>
+</ESRI.Configuration>
